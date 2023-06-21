@@ -8,5 +8,8 @@
     "32": "icons/icon.png",
     "48": "icons/icon.png",
     "128": "icons/icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
   }
 }
