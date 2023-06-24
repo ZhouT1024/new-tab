@@ -4,11 +4,14 @@
  * @returns {String} 新标签页url地址
  */
 function getHomeUrl() {
-  let homeUrl = localStorage.getItem('homeUrl')
+  let homeUrl = ''
+  chrome.storage.sync.get(['homeUrl'], function (result) {
+    homeUrl = result.homeUrl
+  })
 
   if (!homeUrl) {
     homeUrl = 'https://cn.bing.com/'
-    localStorage.setItem('homeUrl', homeUrl)
+    chrome.storage.sync.set({ homeUrl })
   }
   return homeUrl
 }

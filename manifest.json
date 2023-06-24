@@ -11,5 +11,12 @@
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
   }
 }

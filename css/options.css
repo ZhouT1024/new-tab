@@ -1,0 +1,103 @@
+form {
+  border: 1px solid transparent;
+}
+
+/* 表单项 */
+.form-item {
+  display: flex;
+  align-items: center;
+
+  margin: 5px 0;
+  white-space: nowrap;
+
+  color: #d3d3d3;
+}
+
+.form-item.checked {
+  color: #000;
+}
+
+/* 单选框 */
+.form-item input[type='radio'] {
+  margin-right: 10px;
+}
+
+/* label */
+.form-item .form-label {
+  display: inline-block;
+  width: 110px;
+}
+
+/* label 冒号 */
+.form-item .form-label::after {
+  content: ': ';
+  font-weight: bold;
+}
+
+/* 右侧输入框 */
+.form-item input {
+  padding: 10px 20px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+
+  outline: none;
+}
+
+/* select 选择器 */
+.select {
+  --option-height: 35px;
+
+  position: relative;
+
+  width: attr(data-width);
+}
+
+/* 选择器显示值 */
+.select .select-display {
+  padding-left: 10px;
+}
+
+.select .select-options {
+  display: none;
+  position: absolute;
+
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  /* padding: 10px 0; */
+
+  background: #fff;
+  box-shadow: 0 0 10px 5px #e3e3e3;
+}
+
+/* 显示选项 */
+.select.focus .select-options {
+  display: block;
+}
+
+/* 选项 */
+.select-options .option {
+  height: var(--option-height);
+  border-bottom: 1px solid #e3e3e3;
+  line-height: var(--option-height);
+  padding-left: 10px;
+
+  cursor: pointer;
+}
+
+.select-options .option.selected::after {
+  content: '√';
+}
+
+/* hover 选项 */
+.select-options .option:hover {
+  background: #d3d3d3;
+}
+
+/* 表单按钮 */
+.btn {
+  width: 80px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
