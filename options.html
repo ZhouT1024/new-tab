@@ -4,37 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NewTab Options</title>
+  <title>New Tab Settings</title>
 
-  <link rel="stylesheet" href="./css/reset.css" />
   <link rel="stylesheet" href="./css/options.css" />
   <script src="./js/options.js" defer></script>
 </head>
 
 <body>
-  <div class="form-container">
-    <form class="form" action="javascript:void(0);">
-      <!-- 默认提供的选项列表 -->
+  <div class="container">
+    <div class="form">
       <div class="form-item">
-        <input type="radio" name="source" id="default-options" />
-        <label class="form-label" for="select-url">从列表中选择</label>
-        <div class="select" data-width="500">
-          <input class="select-display" type="text" readonly />
-          <ul class="select-options"></ul>
+        <div class="radio-group">
+          <!-- 1. 默认提供的选项 -->
+          <div class="radio-option default">
+            <label class="label">
+              <input type="radio" name="url-from" value="default" />
+              默认选项
+            </label>
+            <div class="select">
+              <select class="url"></select>
+            </div>
+          </div>
+          <!-- 2. 用户自己输入的url -->
+          <div class="radio-option custom">
+            <label class="label">
+              <input type="radio" name="url-from" value="custom" />
+              自定义url
+            </label>
+            <input type="text" class="url" />
+          </div>
         </div>
       </div>
 
-      <!-- 用户输入自定义url -->
       <div class="form-item">
-        <input type="radio" name="source" id="user-custom">
-        <label class="form-label" for="custom-url">自定义url</label>
-        <input id="custom-url" type="url">
+        <button class="save btn">保存</button>
       </div>
-
-      <div class="form-btns">
-        <button class="btn form-btn">确认</button>
-      </div>
-    </form>
+    </div>
   </div>
 </body>
 
