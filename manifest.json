@@ -2,5 +2,21 @@
   "name": "new tab",
   "version": "0.0.1",
   "manifest_version": 3,
-  "description": "自定义浏览器新标签页"
+  "description": "自定义浏览器新标签页",
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  }
 }

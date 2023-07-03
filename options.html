@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab Settings</title>
+
+  <link rel="stylesheet" href="./css/options.css" />
+  <script src="./js/options.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form">
+      <div class="form-item">
+        <div class="radio-group">
+          <!-- 1. 默认提供的选项 -->
+          <div class="radio-option defaultOptions">
+            <label class="label">
+              <input type="radio" name="url-from" value="defaultOptions" />
+              默认选项
+            </label>
+            <div class="select">
+              <select class="url"></select>
+            </div>
+          </div>
+          <!-- 2. 用户自己输入的url -->
+          <div class="radio-option custom">
+            <label class="label">
+              <input type="radio" name="url-from" value="custom" />
+              自定义url
+            </label>
+            <input type="text" class="url" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <button class="save btn">保存</button>
+        <button class="reset btn" disabled>重置</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
