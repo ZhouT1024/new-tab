@@ -1,7 +1,20 @@
 @import url('./reset.css');
 
-.form .radio-group .radio-option:first-child {
+/* 容器 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.form .radio-group .radio-option {
   margin-bottom: 10px;
+}
+
+.form .radio-group .radio-option:last-child {
+  margin: 0;
 }
 
 /* label */
@@ -76,4 +89,30 @@ input.url {
 .radio-option:not(.checked) select,
 .radio-option:not(.checked) input[type='text'] {
   color: #aaa;
+}
+
+/* 表单项 */
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.form-item:last-child {
+  margin: 0;
+}
+
+/* 按钮样式 */
+.form-item .btn {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+/* 禁用的按钮 */
+.form-item .btn:disabled {
+  display: none;
 }
