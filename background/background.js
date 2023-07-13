@@ -1,11 +1,11 @@
 // 初始化设置
-chrome.storage.sync.get(['urlFrom'], function (result) {
-  let urlFrom = result.urlFrom
-  if (!urlFrom) {
-    urlFrom = 'defaultOptions'
+chrome.storage.sync.get(['customMode'], function (result) {
+  let customMode = result.customMode
+  if (!customMode) {
+    customMode = 'defaultOptions'
     // 设置不存在
     chrome.storage.sync.set({
-      urlFrom,
+      customMode,
       defaultOptions: 'https://cn.bing.com/',
     })
   }

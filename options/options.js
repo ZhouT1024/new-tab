@@ -6,13 +6,29 @@ const defaultOptions = [
 ]
 
 // dom
+const form = document.querySelector('form')
 const select = document.querySelector('select.url')
 const urlInput = document.querySelector('input.url')
-const radioGroup = document.querySelector('.radio-group')
-const defaultRadioOption = document.querySelector('.radio-option.defaultOptions')
-const customRadioOption = document.querySelector('.radio-option.custom')
 const saveBtn = document.querySelector('.save.btn')
 const resetBtn = document.querySelector('.reset.btn')
+
+
+/**
+ * 改变设置方式
+ * @param {string} setMode 设置方式
+ */
+function changeMode(setMode) {
+  const disabledItem = document.querySelector('fieldset.checked')
+  if (disabledItem) {
+    disabledItem.classList.remove('checked')
+    disabledItem.setAttribute('disabled', 'disabled')
+  }
+
+  // TODO 设置选中的启用
+  const fieldset = document.querySelector(`fieldset.${setMode}`)
+  fieldset.classList.add('checked')
+  fieldset.removeAttribute('disabled')
+}
 
 /**
  * 使用自定义url
@@ -43,43 +59,37 @@ select.innerHTML = defaultOptions
   .join('')
 
 // 初始化选择的方式
-chrome.storage.sync.get(['urlFrom', 'defaultOptions', 'custom'], function (result) {
-  let { urlFrom, defaultOptions, custom } = result
+// TODO 设置初始禁用状态
+chrome.storage.sync.get(['customMode', 'defaultOptions', 'custom'], function (result) {
+  let { customMode, defaultOptions, custom } = result
 
   if (custom) urlInput.value = custom
   select.value = defaultOptions
 
-  if (urlFrom === 'defaultOptions') {
-    defaultRadioOption.querySelector('input[type="radio"').setAttribute('checked', 'true')
-    enableDefaultOptions()
-  } else {
-    customRadioOption.querySelector('input[type="radio"]').setAttribute('checked', 'true')
-    enableCustomUrl()
-  }
+  const radio = document.querySelector(`input.${customMode}[type="radio"][name="custom-mode"]`)  
+  radio.setAttribute('checked', 'checked')
+  changeMode(customMode)
 })
 
 // 用户选择设置新标签的方式：使用默认提供的选项；自己输入url
-radioGroup.addEventListener('click', e => {
+form.addEventListener('click', e => {
   const tag = e.target
-  if (tag.tagName.toLowerCase() !== 'input') return
-  if (tag.type !== 'radio') return
-
-  const radioValue = tag.value
-  const radioOption = document.querySelector('.radio-option.checked')
-  if (radioOption) radioOption.classList.remove('checked')
-  if (radioValue === 'defaultOptions') {
-    // 使用默认选项
-    enableDefaultOptions()
-  } else {
-    // 自定义
-    enableCustomUrl()
-  }
+  
+  if (tag.localName !== 'input') return
+  if (tag.getAttribute('type') !== 'radio') return 
+  
+  // console.log(tag)
+  const setMode = tag.value
+  console.log('设置方式: ', setMode)
+  
+  // TODO 设置取消选中的禁用
+  changeMode(setMode)
 })
 
 // 保存新标签url
 saveBtn.addEventListener('click', e => {
-  const urlFrom = document.querySelector('input[name="url-from"]:checked').value
-  const homePage = urlFrom === 'defaultOptions' ? select.value : urlInput.value
+  const customMode = document.querySelector('input[name="custom-mode"]:checked').value
+  const homePage = customMode === 'defaultOptions' ? select.value : urlInput.value
 
   console.log('homePage: ' + homePage)
   const regex = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/gi
@@ -89,20 +99,8 @@ saveBtn.addEventListener('click', e => {
     return
   }
 
-  chrome.storage.sync.set({ urlFrom, [`${urlFrom}`]: homePage }).then(res => {
+  chrome.storage.sync.set({ customMode, [`${customMode}`]: homePage }).then(res => {
     console.log('保存成功')
     window.location.href = homePage
   })
 })
-// 重置设置
-// 设置为defaultOptions 必应
-// resetBtn.addEventListener('click', e => {
-//   const bingHomepage = 'https://cn.bing.com/'
-//   const task = chrome.storage.sync.set({ urlFrom: 'defaultOptions', defaultOptions: bingHomepage, custom: '' })
-//   task.then(res => {
-//     // 重置成功
-//     defaultRadioOption.querySelector('input[type="radio"]').setAttribute('checked', true)
-//     select.value = bingHomepage
-//     enableDefaultOptions()
-//   })
-// })

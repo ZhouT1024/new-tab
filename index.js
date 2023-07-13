@@ -1,9 +1,9 @@
 let homeUrl = ''
-chrome.storage.sync.get(['urlFrom']).then(result => {
-  const { urlFrom } = result
+chrome.storage.sync.get(['customMode']).then(result => {
+  const { customMode } = result
 
-  chrome.storage.sync.get([urlFrom], function (result) {
-    const homeUrl = result[urlFrom]
+  chrome.storage.sync.get([customMode], function (result) {
+    const homeUrl = result[customMode]
     window.location.href = homeUrl
   })
 })

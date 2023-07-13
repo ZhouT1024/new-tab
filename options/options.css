@@ -2,24 +2,21 @@
 @import url('../css/button.css');
 
 /* 容器 */
-.container {
+.form-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
+  width: 100%;
   height: 100%;
 }
 
-.form .radio-group .radio-option {
-  margin-bottom: 10px;
-}
-
-.form .radio-group .radio-option:last-child {
-  margin: 0;
-}
-
 /* label */
-.form .label::after {
+.label {
+  display: flex;
+  align-items: center;
+}
+.label .label-text::after {
   content: ': ';
 }
 
@@ -45,9 +42,9 @@
   z-index: 2;
 }
 
-.radio-option.checked .select:hover,
-.radio-option.custom.checked input.url[type="text"]:focus,
-.radio-option.custom.checked input.url[type="text"]:hover {
+.select:hover,
+input.url[type="text"]:focus,
+input.url[type="text"]:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -87,19 +84,8 @@ input.url {
   width: 300px;
 }
 
-/* 禁用的组件样式 */
-.radio-option:not(.checked),
-.radio-option:not(.checked) select,
-.radio-option:not(.checked) input[type='text'] {
-  color: #aaa;
-}
-
 /* 表单项 */
 .form-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   margin-bottom: 10px;
 }
 
@@ -107,7 +93,23 @@ input.url {
   margin: 0;
 }
 
+fieldset:not(.checked) .label-text,
+fieldset:not(.checked) select,
+fieldset:not(.checked) input {
+  color: #dedede;
+}
+
+.label-text {
+  display: inline-block;
+  width: 80px;
+}
+
+/* 按钮 */
+.btns {
+  text-align: center;
+}
+
 /* 禁用的按钮 */
-.form-item .btn:disabled {
+.btn:disabled {
   display: none;
 }

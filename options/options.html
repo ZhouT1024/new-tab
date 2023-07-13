@@ -11,36 +11,37 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="form">
+  <div class="form-container">
+    <form action="#">
+      <!-- 1. 默认提供的选项 -->
       <div class="form-item">
-        <div class="radio-group">
-          <!-- 1. 默认提供的选项 -->
-          <div class="radio-option defaultOptions">
-            <label class="label">
-              <input type="radio" name="url-from" value="defaultOptions" />
-              默认选项
-            </label>
+        <label class="label">
+          <input class="defaultOptions" type="radio" name="custom-mode" value="defaultOptions" />
+          <fieldset class="defaultOptions">
+            <span class="label-text">默认选项</span>
             <div class="select">
               <select class="url"></select>
             </div>
-          </div>
-          <!-- 2. 用户自己输入的url -->
-          <div class="radio-option custom">
-            <label class="label">
-              <input type="radio" name="url-from" value="custom" />
-              自定义url
-            </label>
+          </fieldset>
+        </label>
+      </div>
+      <!-- 2. 用户自己输入的url -->
+      <div class="form-item">
+        <label class="label">
+          <input class="custom" type="radio" name="custom-mode" value="custom" />
+          <fieldset class="custom">
+            <span class="label-text">自定义url</span>
             <input type="text" class="url" />
-          </div>
-        </div>
+          </fieldset>
+        </label>
       </div>
 
-      <div class="form-item">
-        <button class="save btn">保存</button>
+      <div class="form-item btns">
+        <button class="save btn" type="button">保存</button>
         <button class="reset btn" disabled>重置</button>
       </div>
-    </div>
+    </form>
+    
   </div>
 </body>
 
