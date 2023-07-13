@@ -12,11 +12,11 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "options_page": "options.html",
+  "options_page": "./options/options.html",
   "permissions": [
     "storage"
   ],
   "background": {
-    "service_worker": "js/background.js"
+    "service_worker": "./background/background.js"
   }
 }
