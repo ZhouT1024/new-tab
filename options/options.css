@@ -45,7 +45,9 @@
   z-index: 2;
 }
 
-.select:hover {
+.radio-option.checked .select:hover,
+.radio-option.custom.checked input.url[type="text"]:focus,
+.radio-option.custom.checked input.url[type="text"]:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
