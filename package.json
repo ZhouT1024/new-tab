@@ -1,0 +1,25 @@
+{
+  "name": "custom-newtab",
+  "version": "0.0.1",
+  "description": "自定义浏览器新标签页",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhouT1024/new-tab.git"
+  },
+  "keywords": [
+    "newtab"
+  ],
+  "author": "taoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhouT1024/new-tab/issues"
+  },
+  "homepage": "https://github.com/ZhouT1024/new-tab#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.241"
+  }
+}
