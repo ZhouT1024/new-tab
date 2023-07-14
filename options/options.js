@@ -24,7 +24,6 @@ function changeMode(setMode) {
     disabledItem.setAttribute('disabled', 'disabled')
   }
 
-  // TODO 设置选中的启用
   const fieldset = document.querySelector(`fieldset.${setMode}`)
   fieldset.classList.add('checked')
   fieldset.removeAttribute('disabled')
