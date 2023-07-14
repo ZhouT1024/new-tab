@@ -1,6 +1,6 @@
 {
   "name": "Custom NewTab",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
   "description": "自定义浏览器新标签页",
   "icons": {
