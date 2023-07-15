@@ -22,5 +22,17 @@
   "Google": {
     "message": "Google",
     "description": "Page name."
+  },
+  "baidu": {
+    "message": "baidu",
+    "description": "Page name."
+  },
+  "sogou": {
+    "message": "sogou",
+    "description": "Page name."
+  },
+  "so": {
+    "message": "so",
+    "description": "Page name."
   }
 }

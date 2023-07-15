@@ -5,32 +5,19 @@ const urlInput = document.querySelector('input.url')
 const saveBtn = document.querySelector('.save.btn')
 const resetBtn = document.querySelector('.reset.btn')
 
-let defaultOptions
+const bingName = chrome.i18n.getMessage('Bing')
+const googleName = chrome.i18n.getMessage('Google')
+const baiduName = chrome.i18n.getMessage('baidu')
+const sogouName = chrome.i18n.getMessage('sogou')
+const soName = chrome.i18n.getMessage('so')
 
-/**
- * 根据浏览器使用的语言获取默认选项
- * @returns {Array} 默认选项
- */
-function getOptions() {
-  const lang = chrome.i18n.getUILanguage()
-  const bingName = chrome.i18n.getMessage('Bing')
-  const googleName = chrome.i18n.getMessage('Google')
-
-  let options = [
-    { name: bingName, url: 'https://cn.bing.com/' },
-    { name: googleName, url: 'https://www.google.com/' },
-  ]
-
-  if (lang === 'zh-CN') {
-    options = options.concat([
-      { name: '百度', url: 'https://www.baidu.com/' },
-      { name: '搜狗', url: 'https://www.sogou.com/' },
-      { name: '360', url: 'https://www.so.com/' },
-    ])
-  }
-
-  return options
-}
+const defaultOptions = [
+  { name: bingName, url: 'https://cn.bing.com/' },
+  { name: googleName, url: 'https://www.google.com/' },
+  { name: baiduName, url: 'https://www.baidu.com/' },
+  { name: sogouName, url: 'https://www.sogou.com/' },
+  { name: soName, url: 'https://www.so.com/' },
+]
 
 /**
  * 国际化
@@ -78,7 +65,6 @@ function enableDefaultOptions() {
   urlInput.setAttribute('disabled', true)
 }
 
-defaultOptions = getOptions()
 i18nInit()
 
 // 初始化下拉选择框

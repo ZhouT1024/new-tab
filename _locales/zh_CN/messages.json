@@ -22,5 +22,17 @@
   "Google": {
     "message": "谷歌",
     "description": "页面名称"
+  },
+  "baidu": {
+    "message": "百度",
+    "description": "页面名称"
+  },
+  "sogou": {
+    "message": "搜狗",
+    "description": "页面名称"
+  },
+  "so": {
+    "message": "360",
+    "description": "页面名称"
   }
 }
