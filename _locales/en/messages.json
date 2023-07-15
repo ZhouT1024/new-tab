@@ -15,6 +15,10 @@
     "message": "custom url",
     "description": "Form label."
   },
+  "save": {
+    "message": "save",
+    "description": "Button text"
+  },
   "Bing": {
     "message": "Bing",
     "description": "Page name."

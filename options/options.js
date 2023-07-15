@@ -10,6 +10,9 @@ const googleName = chrome.i18n.getMessage('Google')
 const baiduName = chrome.i18n.getMessage('baidu')
 const sogouName = chrome.i18n.getMessage('sogou')
 const soName = chrome.i18n.getMessage('so')
+const saveName = chrome.i18n.getMessage('save')
+
+saveBtn.innerText = saveName
 
 const defaultOptions = [
   { name: bingName, url: 'https://cn.bing.com/' },

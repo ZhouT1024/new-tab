@@ -15,6 +15,10 @@
     "message": "自定义url",
     "description": "表单label"
   },
+  "save": {
+    "message": "保存",
+    "description": "按钮文本"
+  },
   "Bing": {
     "message": "必应",
     "description": "页面名称"
