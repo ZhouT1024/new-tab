@@ -1,0 +1,26 @@
+{
+  "extName": {
+    "message": "Custom NewTab",
+    "description": "Extension name."
+  },
+  "extDesc": {
+    "message": "With this extension you can customize the page you see when you open a new tab.",
+    "description": "Extension description."
+  },
+  "labelDefaultOptions": {
+    "message": "default options",
+    "description": "Form label."
+  },
+  "labelCustomUrl": {
+    "message": "custom url",
+    "description": "Form label."
+  },
+  "Bing": {
+    "message": "Bing",
+    "description": "Page name."
+  },
+  "Google": {
+    "message": "Google",
+    "description": "Page name."
+  }
+}

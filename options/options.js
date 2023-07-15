@@ -1,16 +1,47 @@
-const defaultOptions = [
-  { name: '必应', url: 'https://cn.bing.com/' },
-  { name: '百度', url: 'https://www.baidu.com/' },
-  { name: '搜狗', url: 'https://www.sogou.com/' },
-  { name: '360', url: 'https://www.so.com/' },
-]
-
 // dom
 const form = document.querySelector('form')
 const select = document.querySelector('select.url')
 const urlInput = document.querySelector('input.url')
 const saveBtn = document.querySelector('.save.btn')
 const resetBtn = document.querySelector('.reset.btn')
+
+let defaultOptions
+
+/**
+ * 根据浏览器使用的语言获取默认选项
+ * @returns {Array} 默认选项
+ */
+function getOptions() {
+  const lang = chrome.i18n.getUILanguage()
+  const bingName = chrome.i18n.getMessage('Bing')
+  const googleName = chrome.i18n.getMessage('Google')
+
+  let options = [
+    { name: bingName, url: 'https://cn.bing.com/' },
+    { name: googleName, url: 'https://www.google.com/' },
+  ]
+
+  if (lang === 'zh-CN') {
+    options = options.concat([
+      { name: '百度', url: 'https://www.baidu.com/' },
+      { name: '搜狗', url: 'https://www.sogou.com/' },
+      { name: '360', url: 'https://www.so.com/' },
+    ])
+  }
+
+  return options
+}
+
+/**
+ * 国际化
+ */
+function i18nInit() {
+  const defaultOptionsLabel = document.querySelector('.form-item fieldset.defaultOptions .label-text')
+  const customUrlLabel = document.querySelector('.form-item fieldset.custom .label-text')
+
+  defaultOptionsLabel.innerText = chrome.i18n.getMessage('labelDefaultOptions')
+  customUrlLabel.innerText = chrome.i18n.getMessage('labelCustomUrl')
+}
 
 
 /**
@@ -46,6 +77,9 @@ function enableDefaultOptions() {
   select.removeAttribute('disabled')
   urlInput.setAttribute('disabled', true)
 }
+
+defaultOptions = getOptions()
+i18nInit()
 
 // 初始化下拉选择框
 select.innerHTML = defaultOptions

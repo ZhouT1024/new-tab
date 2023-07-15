@@ -1,0 +1,26 @@
+{
+  "extName": {
+    "message": "自定义新标签页",
+    "description": "扩展名"
+  },
+  "extDesc": {
+    "message": "你可以通过此扩展自定义打开新选项卡时看到的页面",
+    "description": "扩展介绍"
+  },
+  "labelDefaultOptions": {
+    "message": "默认选项",
+    "description": "表单label"
+  },
+  "labelCustomUrl": {
+    "message": "自定义url",
+    "description": "表单label"
+  },
+  "Bing": {
+    "message": "必应",
+    "description": "页面名称"
+  },
+  "Google": {
+    "message": "谷歌",
+    "description": "页面名称"
+  }
+}
